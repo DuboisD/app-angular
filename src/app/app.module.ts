@@ -10,6 +10,7 @@ import { UserService } from './services/user.service';
 import { AuthComponent } from './auth/auth.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { RouterModule, Routes } from '@angular/router';
+import {AuthService} from './services/auth.service';
 
 const appRoutes: Routes = [
   { path: 'users', component: UserViewComponent},
