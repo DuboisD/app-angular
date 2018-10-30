@@ -3,6 +3,7 @@
                 'list-group-item-danger': userStatus === 'non actif'}">
 
   <h4 [ngStyle]="{color: getColor()}">Utilisateur: {{userName}} -- Statut: {{getStatus()}}</h4>
+  <a [routerLink]="[id]">Détails</a>
   <input type="text" class="form-control" [(ngModel)]="userName">
 
   <button class="'btn btn-sm btn-success"

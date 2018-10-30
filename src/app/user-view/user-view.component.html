@@ -7,7 +7,8 @@
         <app-users *ngFor="let user of users; let i = index"
                    [userName]="user.name"
                    [userStatus]="user.status"
-                   [index]="i"></app-users>
+                   [index]="i"
+                   [id]="user.id"></app-users>
       </ul>
       <button class="btn btn-success"
               [disabled]="!isAuth"

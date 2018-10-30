@@ -11,6 +11,7 @@ export class UsersComponent implements OnInit {
   @Input() userName: string;
   @Input() userStatus: string;
   @Input() index: number;
+  @Input() id: number;
 
   constructor(private userService: UserService) { }
 

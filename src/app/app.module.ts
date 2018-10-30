@@ -10,10 +10,12 @@ import { UserService } from './services/user.service';
 import { AuthComponent } from './auth/auth.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { RouterModule, Routes } from '@angular/router';
-import {AuthService} from './services/auth.service';
+import { AuthService } from './services/auth.service';
+import { SingleUserComponent } from './single-user/single-user.component';
 
 const appRoutes: Routes = [
   { path: 'users', component: UserViewComponent},
+  { path: 'users/:id', component: SingleUserComponent},
   { path: 'auth', component: AuthComponent},
   { path: '', component: UserViewComponent},
 ];
@@ -24,7 +26,8 @@ const appRoutes: Routes = [
     TodoListComponent,
     UsersComponent,
     AuthComponent,
-    UserViewComponent
+    UserViewComponent,
+    SingleUserComponent
   ],
   imports: [
     BrowserModule,
