@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Mes utilisateurs</h2>
+      <p>Mise à jour: {{lastUpdate | async | date: 'short' | uppercase}}</p>
+      <ul class="list-group">
+        <app-users *ngFor="let user of users; let i = index"
+                   [userName]="user.name"
+                   [userStatus]="user.status"
+                   [index]="i"></app-users>
+      </ul>
+      <button class="btn btn-success"
+              [disabled]="!isAuth"
+              (click)="onConnect()">Connecter tt le monde</button>
+      <button class="btn btn-danger"
+              [disabled]="!isAuth"
+              (click)="onDisconnect()">Déconnecter tt le monde</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': userStatus === 'actif',
+                'list-group-item-danger': userStatus === 'non actif'}">
+
+  <h4 [ngStyle]="{color: getColor()}">Utilisateur: {{userName}} -- Statut: {{getStatus()}}</h4>
+  <input type="text" class="form-control" [(ngModel)]="userName">
+
+  <button class="'btn btn-sm btn-success"
+          *ngIf="userStatus === 'non actif'"
+          (click)="onSwitch()">Connection</button>
+  <button class="'btn btn-sm btn-danger"
+          *ngIf="userStatus === 'actif'"
+          (click)="onSwitch()">Deconnection</button>
+</li>
