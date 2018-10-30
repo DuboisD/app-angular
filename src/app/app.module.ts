@@ -12,12 +12,15 @@ import { UserViewComponent } from './user-view/user-view.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { SingleUserComponent } from './single-user/single-user.component';
+import { FourohfourComponent } from './fourohfour/fourohfour.component';
 
 const appRoutes: Routes = [
   { path: 'users', component: UserViewComponent},
   { path: 'users/:id', component: SingleUserComponent},
   { path: 'auth', component: AuthComponent},
   { path: '', component: UserViewComponent},
+  { path: 'not-found', component: FourOhFourComponent},
+  { path: '**', redirectTo: 'not-found'}
 ];
 
 @NgModule({
@@ -27,7 +30,8 @@ const appRoutes: Routes = [
     UsersComponent,
     AuthComponent,
     UserViewComponent,
-    SingleUserComponent
+    SingleUserComponent,
+    FourohfourComponent
   ],
   imports: [
     BrowserModule,
