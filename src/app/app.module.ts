@@ -13,13 +13,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { SingleUserComponent } from './single-user/single-user.component';
 import { FourohfourComponent } from './fourohfour/fourohfour.component';
+import { TodoViewComponent } from './todo-view/todo-view.component';
+import { TodoService } from './services/todo.service';
 
 const appRoutes: Routes = [
   { path: 'users', component: UserViewComponent},
   { path: 'users/:id', component: SingleUserComponent},
   { path: 'auth', component: AuthComponent},
   { path: '', component: UserViewComponent},
-  { path: 'not-found', component: FourOhFourComponent},
+  { path: 'todo-list', component: TodoViewComponent},
+  { path: 'not-found', component: FourohfourComponent},
   { path: '**', redirectTo: 'not-found'}
 ];
 
@@ -31,7 +34,8 @@ const appRoutes: Routes = [
     AuthComponent,
     UserViewComponent,
     SingleUserComponent,
-    FourohfourComponent
+    FourohfourComponent,
+    TodoViewComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     UserService,
-    AuthService
+    AuthService,
+    TodoService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,21 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h2>Utilisateurs</h2>
+      <h2>Liste des Tâches</h2>
       <p>Mise à jour: {{lastUpdate | async | date: 'short' | uppercase}}</p>
       <ul class="list-group">
-        <app-users *ngFor="let user of users; let i = index"
-                   [userName]="user.name"
-                   [userStatus]="user.status"
+        <app-todo-list *ngFor="let todo of todos; let i = index"
+                   [todoName]="todo.name"
+                   [todoStatus]="todo.status"
                    [index]="i"
-                   [id]="user.id"></app-users>
+                   [id]="todo.id"></app-todo-list>
       </ul>
       <button class="btn btn-success"
               [disabled]="!isAuth"
-              (click)="onConnect()">Connecter tt le monde</button>
+              (click)="onConnectT()">Tout est fait !</button>
       <button class="btn btn-danger"
               [disabled]="!isAuth"
-              (click)="onDisconnect()">Déconnecter tt le monde</button>
+              (click)="onDisconnectT()">Rien n'est fait !</button>
     </div>
   </div>
 </div>

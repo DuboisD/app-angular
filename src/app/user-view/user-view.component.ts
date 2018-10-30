@@ -25,7 +25,7 @@ export class UserViewComponent implements OnInit {
     this.userService.switchOnAll();
   }
   onDisconnect() {
-    if (confirm('Etes-vous sur de vouloir déconnecter tt le monde?')) {
+    if (confirm('Etes-vous sur de vouloir déconnecter tt le monde ?')) {
       this.userService.switchOffAll();
     } else {
       return null;

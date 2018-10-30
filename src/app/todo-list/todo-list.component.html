@@ -1,3 +1,14 @@
-<p>
-  todo-list works!
-</p>
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-danger': todoStatus === 'à faire',
+                'list-group-item-success': todoStatus === 'fait'}">
+
+  <h4 [ngStyle]="{color: getColorT()}">Tâche: {{todoName}} -- Statut: {{getStatusT()}}</h4>
+  <input type="text" class="form-control" [(ngModel)]="todoName">
+
+  <button class="'btn btn-sm btn-success"
+          *ngIf="todoStatus === 'fait'"
+          (click)="onSwitchT()">Supprimer</button>
+  <button class="'btn btn-sm btn-danger"
+          *ngIf="todoStatus === 'à faire'"
+          (click)="onSwitchT()">Fait</button>
+</li>
