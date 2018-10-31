@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../services/todo.service';
 import { AuthService } from '../services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-todo-view',
@@ -10,6 +11,7 @@ import { AuthService } from '../services/auth.service';
 export class TodoViewComponent implements OnInit {
   isAuth = false;
   todos: any[];
+  todoSubscription: Subscription;
   lastUpdate = new Promise((resolve, reject) => {
     const date = new Date();
     setTimeout(
@@ -21,7 +23,12 @@ export class TodoViewComponent implements OnInit {
   constructor(private todoService: TodoService, private authService: AuthService) {}
   ngOnInit() {
     this.isAuth = this.authService.isAuth;
-    this.todos = this.todoService.todos;
+    this.todoSubscription = this.todoService.todoSubject.subscribe(
+      (todos: any[]) => {
+        this.todos = todos;
+      }
+    );
+    this.todoService.emitTodoSubject();
   }
   onConnectT() {
     this.todoService.switchOnAllT();

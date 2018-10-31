@@ -1,5 +1,8 @@
+import {Subject} from 'rxjs';
+
 export class TodoService {
-  todos = [
+  todoSubject = new Subject<any[]>();
+  private todos = [
     {
       id: 1,
       name: 'Faire la vaisselle',
@@ -21,21 +24,28 @@ export class TodoService {
       status: 'à faire'
     }
   ];
+  emitTodoSubject() {
+    this.todoSubject.next(this.todos.slice());
+  }
   switchOnAllT() {
     for (const todo of this.todos) {
       todo.status = 'fait';
     }
+    this.emitTodoSubject();
   }
   switchOffAllT() {
     for (const todo of this.todos) {
       todo.status = 'à faire';
     }
+    this.emitTodoSubject();
   }
   switchOnOneT(i: number) {
     this.todos[i].status = 'fait';
+    this.emitTodoSubject();
   }
   switchOffOneT(i: number) {
     this.todos[i].status = 'à faire';
+    this.emitTodoSubject();
   }
   addTodolist(name: string, status: string) {
     const todoObject = {
