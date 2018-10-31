@@ -2,22 +2,22 @@ export class TodoService {
   todos = [
     {
       id: 1,
-      name: 'faire la vaisselle',
+      name: 'Faire la vaisselle',
       status: 'à faire'
     },
     {
       id: 2,
-      name: 'ranger les bureaux',
+      name: 'Ranger les bureaux',
       status: 'fait'
     },
     {
       id: 3,
-      name: 'être ponctuel-le',
+      name: 'Etre ponctuel-le',
       status: 'à faire'
     },
     {
       id: 4,
-      name: 'ranger le frigo le vendredi',
+      name: 'Ranger le frigo le vendredi',
       status: 'à faire'
     }
   ];
@@ -36,5 +36,16 @@ export class TodoService {
   }
   switchOffOneT(i: number) {
     this.todos[i].status = 'à faire';
+  }
+  addTodolist(name: string, status: string) {
+    const todoObject = {
+      id: 0,
+      name: '',
+      status: ''
+    };
+    todoObject.name = name;
+    todoObject.status = status;
+    todoObject.id = this.todos[(this.todos.length - 1)].id + 1;
+    this.todos.push(todoObject);
   }
 }

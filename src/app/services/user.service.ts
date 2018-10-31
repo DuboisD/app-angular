@@ -2,17 +2,17 @@ export class UserService {
   users = [
     {
       id: 1,
-      name: 'jean michou',
+      name: 'Jean Michou',
       status: 'actif'
     },
     {
       id: 2,
-      name: 'maira daibé',
+      name: 'Maria des Baies',
       status: 'non actif'
     },
     {
       id: 3,
-      name: 'paul eau',
+      name: 'Paul Eau',
       status: 'actif'
     }
   ];
@@ -26,11 +26,11 @@ export class UserService {
       user.status = 'non actif';
     }
   }
-  switchOnOne(i: number) {
-    this.users[i].status = 'actif';
+  switchOnOne(userIndex: number) {
+    this.users[userIndex].status = 'actif';
   }
-  switchOffOne(i: number) {
-    this.users[i].status = 'non actif';
+  switchOffOne(userIndex: number) {
+    this.users[userIndex].status = 'non actif';
   }
   getUserById(id: number) {
     const user = this.users.find(

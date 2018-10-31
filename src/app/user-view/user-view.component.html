@@ -7,15 +7,16 @@
         <app-users *ngFor="let user of users; let i = index"
                    [userName]="user.name"
                    [userStatus]="user.status"
-                   [index]="i"
+                   [userIndex]="i"
                    [id]="user.id"></app-users>
       </ul>
       <button class="btn btn-success"
               [disabled]="!isAuth"
-              (click)="onConnect()">Connecter tt le monde</button>
+              (click)="onConnect()">Connecter tout le monde</button>
       <button class="btn btn-danger"
               [disabled]="!isAuth"
-              (click)="onDisconnect()">Déconnecter tt le monde</button>
+              (click)="onDisconnect()">Déconnecter tout le monde</button>
+
     </div>
   </div>
 </div>

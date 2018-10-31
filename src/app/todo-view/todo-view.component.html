@@ -5,17 +5,21 @@
       <p>Mise à jour: {{lastUpdate | async | date: 'short' | uppercase}}</p>
       <ul class="list-group">
         <app-todo-list *ngFor="let todo of todos; let i = index"
-                   [todoName]="todo.name"
-                   [todoStatus]="todo.status"
-                   [index]="i"
-                   [id]="todo.id"></app-todo-list>
+                       [todoName]="todo.name"
+                       [todoStatus]="todo.status"
+                       [index]="i"
+                       [id]="todo.id"></app-todo-list>
       </ul>
-      <button class="btn btn-success"
-              [disabled]="!isAuth"
-              (click)="onConnectT()">Tout est fait !</button>
-      <button class="btn btn-danger"
-              [disabled]="!isAuth"
-              (click)="onDisconnectT()">Rien n'est fait !</button>
+      <div class="col-xs-12">
+        <button class="btn btn-success col-xs-3  offset-2"
+                [disabled]="!isAuth"
+                (click)="onConnectT()">Tout est fait !
+        </button>
+        <button class="btn btn-danger col-xs-3 offset-3"
+                [disabled]="!isAuth"
+                (click)="onDisconnectT()">Rien n'est fait !
+        </button>
+      </div>
     </div>
   </div>
 </div>

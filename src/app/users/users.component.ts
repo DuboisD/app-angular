@@ -10,7 +10,7 @@ export class UsersComponent implements OnInit {
 
   @Input() userName: string;
   @Input() userStatus: string;
-  @Input() index: number;
+  @Input() userIndex: number;
   @Input() id: number;
 
   constructor(private userService: UserService) { }
@@ -30,9 +30,9 @@ export class UsersComponent implements OnInit {
   }
   onSwitch() {
     if (this.userStatus === 'actif') {
-      this.userService.switchOffOne(this.index);
+      this.userService.switchOffOne(this.userIndex);
     } else if (this.userStatus === 'non actif') {
-      this.userService.switchOnOne(this.index);
+      this.userService.switchOnOne(this.userIndex);
     }
   }
 }

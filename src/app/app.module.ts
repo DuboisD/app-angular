@@ -15,13 +15,15 @@ import { SingleUserComponent } from './single-user/single-user.component';
 import { FourohfourComponent } from './fourohfour/fourohfour.component';
 import { TodoViewComponent } from './todo-view/todo-view.component';
 import { TodoService } from './services/todo.service';
+import { EditTodoComponent } from './edit-todo/edit-todo.component';
 
 const appRoutes: Routes = [
+  { path: 'auth', component: AuthComponent},
+  { path: '', component: AuthComponent},
   { path: 'users', component: UserViewComponent},
   { path: 'users/:id', component: SingleUserComponent},
-  { path: 'auth', component: AuthComponent},
-  { path: '', component: UserViewComponent},
   { path: 'todo-list', component: TodoViewComponent},
+  { path: 'edit', component: EditTodoComponent},
   { path: 'not-found', component: FourohfourComponent},
   { path: '**', redirectTo: 'not-found'}
 ];
@@ -35,7 +37,8 @@ const appRoutes: Routes = [
     UserViewComponent,
     SingleUserComponent,
     FourohfourComponent,
-    TodoViewComponent
+    TodoViewComponent,
+    EditTodoComponent
   ],
   imports: [
     BrowserModule,

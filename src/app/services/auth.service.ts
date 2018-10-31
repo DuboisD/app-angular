@@ -8,6 +8,7 @@ export class AuthService {
         setTimeout(
           () => {
             this.isAuth = true;
+            console.log(this.isAuth);
             resolve(true);
           }, 2000
         );

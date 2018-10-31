@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../services/todo.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-todo-view',
@@ -17,8 +18,9 @@ export class TodoViewComponent implements OnInit {
       }, 2000
     );
   });
-  constructor(private todoService: TodoService) {}
+  constructor(private todoService: TodoService, private authService: AuthService) {}
   ngOnInit() {
+    this.isAuth = this.authService.isAuth;
     this.todos = this.todoService.todos;
   }
   onConnectT() {

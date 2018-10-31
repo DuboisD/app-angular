@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-user-view',
@@ -17,8 +18,9 @@ export class UserViewComponent implements OnInit {
       }, 2000
     );
   });
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private authService: AuthService) {}
   ngOnInit() {
+    this.isAuth = this.authService.isAuth;
     this.users = this.userService.users;
   }
   onConnect() {
