@@ -2,14 +2,16 @@
                 'list-group-item-success': userStatus === 'actif',
                 'list-group-item-danger': userStatus === 'non actif'}">
 
-  <h4 [ngStyle]="{color: getColor()}">{{userName}}; statut: {{getStatus()}}</h4>
-  <a [routerLink]="[id]">Détails</a>
+  <h4 style="text-align:center" [ngStyle]="{color: getColor()}">{{userName}}; statut: {{getStatus()}}</h4>
   <input type="text" class="form-control" [(ngModel)]="userName">
 
-  <button class="'btn btn-sm btn-success"
+  <div class="col-12" style="margin-top:10px">
+  <button class="btn btn-sm btn-success col-4"
           *ngIf="userStatus === 'non actif'"
           (click)="onSwitch()">Connection</button>
-  <button class="'btn btn-sm btn-danger"
+  <button class="btn btn-sm btn-danger"
           *ngIf="userStatus === 'actif'"
           (click)="onSwitch()">Deconnection</button>
+  <a class="col-4 offset-3" [routerLink]="[id]">Détails</a>
+  </div>
 </li>
