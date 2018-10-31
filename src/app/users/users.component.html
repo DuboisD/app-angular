@@ -1,4 +1,4 @@
-<li [ngClass]="{'list-group-item': true,
+<!--<li [ngClass]="{'list-group-item': true,
                 'list-group-item-success': userStatus === 'actif',
                 'list-group-item-danger': userStatus === 'non actif'}">
 
@@ -14,4 +14,11 @@
           (click)="onSwitch()">Deconnection</button>
   <a class="col-4 offset-3" [routerLink]="[id]">Détails</a>
   </div>
-</li>
+</li>-->
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let user of users">
+    <h3>{{ user.firstname}} {{ user.lastname}}</h3>
+    <p>{{ user.email }}</p>
+  </li>
+</ul>

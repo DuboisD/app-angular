@@ -7,7 +7,7 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './user-view.component.html',
   styleUrls: ['./user-view.component.css']
 })
-export class UserViewComponent implements OnInit {
+export class UserViewComponent {
   isAuth = false;
   users: any[];
   lastUpdate = new Promise((resolve, reject) => {
@@ -19,7 +19,7 @@ export class UserViewComponent implements OnInit {
     );
   });
   constructor(private userService: UserService, private authService: AuthService) {}
-  ngOnInit() {
+  /*ngOnInit() {
     this.isAuth = this.authService.isAuth;
     this.users = this.userService.users;
   }
@@ -32,5 +32,5 @@ export class UserViewComponent implements OnInit {
     } else {
       return null;
     }
-  }
+  }*/
 }

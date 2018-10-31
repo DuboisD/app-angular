@@ -21,7 +21,6 @@ const appRoutes: Routes = [
   { path: 'auth', component: AuthComponent},
   { path: '', component: AuthComponent},
   { path: 'users', component: UserViewComponent},
-  { path: 'users/:id', component: SingleUserComponent},
   { path: 'todo-list', component: TodoViewComponent},
   { path: 'edit', component: EditTodoComponent},
   { path: 'not-found', component: FourohfourComponent},

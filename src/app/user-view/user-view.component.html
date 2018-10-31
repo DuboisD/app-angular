@@ -5,8 +5,9 @@
       <p>Mise à jour: {{lastUpdate | async | date: 'short' | uppercase}}</p>
       <ul class="list-group">
         <app-users *ngFor="let user of users; let i = index"
-                   [userName]="user.name"
-                   [userStatus]="user.status"
+                   [firstName]="user.firstname"
+                   [lastName]="user.lastname"
+                   [email]="user.email"
                    [userIndex]="i"
                    [id]="user.id"></app-users>
       </ul>
@@ -16,7 +17,6 @@
       <button class="btn btn-danger"
               [disabled]="!isAuth"
               (click)="onDisconnect()">Déconnecter tout le monde</button>
-
     </div>
   </div>
 </div>

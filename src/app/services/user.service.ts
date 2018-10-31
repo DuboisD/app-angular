@@ -1,43 +1,30 @@
+import {User} from '../models/User.model';
+import {Subject} from 'rxjs';
+
 export class UserService {
-  users = [
+  private users: User[] = [
     {
-      id: 1,
-      name: 'Jean Michou',
-      status: 'actif'
+      firstname: 'Jean',
+      lastname: 'Michou',
+      email: 'jeanmichou@jano.com'
     },
     {
-      id: 2,
-      name: 'Maria des Baies',
-      status: 'non actif'
+      firstname: 'Maria',
+      lastname: 'Des baies',
+      email: 'mariadbu@mdb.com'
     },
     {
-      id: 3,
-      name: 'Paul Eau',
-      status: 'actif'
+      firstname: 'Paul',
+      lastname: 'Eau',
+      email: 'polo@water.com'
     }
   ];
-  switchOnAll() {
-    for (const user of this.users) {
-      user.status = 'actif';
-    }
+  userSubject = new Subject<User[]>();
+  emitUsers() {
+    this.userSubject.next(this.users.slice());
   }
-  switchOffAll() {
-    for (const user of this.users) {
-      user.status = 'non actif';
-    }
-  }
-  switchOnOne(userIndex: number) {
-    this.users[userIndex].status = 'actif';
-  }
-  switchOffOne(userIndex: number) {
-    this.users[userIndex].status = 'non actif';
-  }
-  getUserById(id: number) {
-    const user = this.users.find(
-      (s) => {
-        return s.id === id;
-      }
-    );
-    return user;
+  addUser(user: User) {
+    this.users.push(user);
+    this.emitUsers();
   }
 }
