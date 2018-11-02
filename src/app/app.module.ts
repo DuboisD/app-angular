@@ -33,7 +33,6 @@ const appRoutes: Routes = [
     TodoListComponent,
     UsersComponent,
     AuthComponent,
-    UserViewComponent,
     UserAddComponent,
     FourohfourComponent,
     TodoViewComponent,
