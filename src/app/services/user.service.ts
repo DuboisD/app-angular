@@ -4,18 +4,21 @@ import {Subject} from 'rxjs';
 export class UserService {
   private users: User[] = [
     {
-      firstname: 'Jean',
-      lastname: 'Michou',
+      firstName: 'Jean',
+      lastName: 'Michou',
+      type: 'student',
       email: 'jeanmichou@jano.com'
     },
     {
-      firstname: 'Maria',
-      lastname: 'Des baies',
+      firstName: 'Maria',
+      lastName: 'Des baies',
+      type: 'teacher',
       email: 'mariadbu@mdb.com'
     },
     {
-      firstname: 'Paul',
-      lastname: 'Eau',
+      firstName: 'Paul',
+      lastName: 'Eau',
+      type: 'student',
       email: 'polo@water.com'
     }
   ];

@@ -5,13 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { UsersComponent } from './users/users.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { AuthComponent } from './auth/auth.component';
-import { UserViewComponent } from './user-view/user-view.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from './services/auth.service';
-import { SingleUserComponent } from './single-user/single-user.component';
+import { UserAddComponent } from './user-add/user-add.component';
 import { FourohfourComponent } from './fourohfour/fourohfour.component';
 import { TodoViewComponent } from './todo-view/todo-view.component';
 import { TodoService } from './services/todo.service';
@@ -20,7 +19,8 @@ import { EditTodoComponent } from './edit-todo/edit-todo.component';
 const appRoutes: Routes = [
   { path: 'auth', component: AuthComponent},
   { path: '', component: AuthComponent},
-  { path: 'users', component: UserViewComponent},
+  { path: 'users', component: UsersComponent},
+  { path: 'user-add', component: UserAddComponent},
   { path: 'todo-list', component: TodoViewComponent},
   { path: 'edit', component: EditTodoComponent},
   { path: 'not-found', component: FourohfourComponent},
@@ -34,7 +34,7 @@ const appRoutes: Routes = [
     UsersComponent,
     AuthComponent,
     UserViewComponent,
-    SingleUserComponent,
+    UserAddComponent,
     FourohfourComponent,
     TodoViewComponent,
     EditTodoComponent
@@ -43,6 +43,7 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [

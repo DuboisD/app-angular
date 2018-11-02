@@ -14,11 +14,12 @@ export class UsersComponent implements OnInit, OnDestroy {
   userSubscription: Subscription;
   @Input() firstName: string;
   @Input() lastName: string;
+  @Input() type: string;
   @Input() email: string;
   @Input() userIndex: number;
   @Input() id: number;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.userSubscription = this.userService.userSubject.subscribe(
@@ -31,21 +32,4 @@ export class UsersComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.userSubscription.unsubscribe();
   }
-  /*getStatus() {
-    return this.userStatus;
-  }
-  getColor() {
-    if (this.userStatus === 'actif') {
-      return 'green';
-    } else if (this.userStatus === 'non actif') {
-      return 'red';
-    }
-  }
-  onSwitch() {
-    if (this.userStatus === 'actif') {
-      this.userService.switchOffOne(this.userIndex);
-    } else if (this.userStatus === 'non actif') {
-      this.userService.switchOnOne(this.userIndex);
-    }
-  }*/
 }
